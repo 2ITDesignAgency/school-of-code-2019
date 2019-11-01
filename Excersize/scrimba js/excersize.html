@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scrimba Exersise</title>
+</head>
+
+<body>
+    <script>
+        // Variables in JavaScript
+        let scrimba = 'excersise1'; //use let when you will overide values
+        const scrimba2 = 'finalexcersise'; //use const when you will not overide values
+        scrimba = 'excersise2';
+        console.log(scrimba);
+
+        // Strings in JavaScript
+        let firstName = "Khatchig"; // strings are text in ' ' || " "
+        let lastName = "Garabedian";
+        console.log(firstName + " " + lastName); // first way of concatenation
+        console.log(`   ${firstName} ${lastName}`); // es6 concatenation spaces in the ticks will be shown
+        console.log(`        ${firstName} ${lastName}`.length); //  .length shows how many caracters are in my string
+        console.log(`        ${firstName} ${lastName}`
+            .trim()); // .trim() will delete all spaces in the begining and end of string
+        console.log(`${firstName} ${lastName}`.toUpperCase()); // converts string to uppercase
+        console.log(`${firstName} ${lastName}`.toLowerCase()); // converts string to lowercase
+        console.log(`${firstName} ${lastName}`.split(
+            ' '
+        )); // converts string to an array and split the string with what you add in split function eg space, letter or letter with empty ticks
+
+        //Strings in JavaScript (Challenge)
+        let fullName = firstName + ' ' + lastName; //1st answer wrong in es6
+        fullName = `${firstName} ${lastName}`; // 2nd way and the corect way in es6
+        console.log(fullName);
+
+        //Numbers in JavaScript
+        let example = '8.5'; // you can use ticks and still show it as a number 
+        example = 8.5; // number you can use also 8.5
+        console.log(parseInt(example)); // parse int shows intiger number
+        console.log(parseFloat(example)); // parse float shows hole number number
+        console.log(example.toFixed(5)); // set how manny decimal numbers will be used
+
+        //Numbers in JavaScript (Challenge)
+        let example1 = parseInt("Hello 33 js 22");
+        let example2 = parseFloat('44 khatchig 33');
+        let example3 = 55.3333.toFixed(0);
+        let example4 = 200.0.toFixed(2);
+
+        //answers part 1 results
+        console.log(example1); // NaN
+        console.log(example2); // answer is 44
+        console.log(example3); // answer is 55
+        console.log(example4); // answer is 200.00
+        // answers part 2 type
+        console.log(typeof example1); // number
+        console.log(typeof example2); // number
+        console.log(typeof example3); // string
+        console.log(typeof example4); // string
+
+        //Booleans in JavaScript
+        let scrimba3 = false; // only 2 results can be in booleans true || false
+        scrimba3 = true;
+        scrimba3 = 666; // numbers are truthly values
+        // console.log(Boolean(scrimba)); // a way to check the result of a boolean
+
+        //Booleans in JavaScript (Challenge)
+        let exampleBoolian1 = false;
+        let exampleBoolian2 = true;
+        let exampleBoolian3 = null;
+        let exampleBoolian4 = undefined;
+        let exampleBoolian5 = '';
+        let exampleBoolian6 = NaN;
+        let exampleBoolian7 = -5;
+        let exampleBoolian8 = 0;
+
+        console.log(Boolean(exampleBoolian1)); // result is false always returs false
+        console.log(Boolean(exampleBoolian2)); // result is true always returs true
+        console.log(Boolean(exampleBoolian3)); // result is false because its an empty placeholder
+        console.log(Boolean(exampleBoolian4)); // result is false because this variable is not defined
+        console.log(Boolean(
+            exampleBoolian5)); // result is false empty string because no caracter is in if space is in it will be true
+        console.log(Boolean(exampleBoolian6)); // result is false its a value type that will give false
+        console.log(Boolean(exampleBoolian7)); // result is true numbers always is truthy value except 0
+        console.log(Boolean(exampleBoolian8)); // result is false
+
+        //Arrays in JavaScript
+        let exampleArray = [1, 2, 3]; // arrays are always a bracket with items inside that seperates byt a ,
+        console.log(exampleArray.length); // it shows the sum of items in the array
+        console.log(exampleArray[
+            0
+        ]); // it targets item in [] this case the first item since arrays start from 0 and therfore gives the result 1
+        exampleArray.push(4, 5); // ads at the end of an array items
+        exampleArray.pop(); // removes the last item in an array
+        exampleArray[0] = 10; // it targets a single item in the array with [] and changes the value of it
+        exampleArray.forEach((
+            element) => { //this a method to show all items in the array in the  console log by it self
+            console.log(element)
+        });
+        console.log(exampleArray); // shows the hole aray in console
+
+        //Arrays in JavaScript (Challenge)
+        // reference method
+        let exampleArray1 = ['khatchig', 8, false];
+        let exampleArray2 = exampleArray1; // this method makes a reference between exampleArray2 and exampleArray1
+        exampleArray2.push(11);
+        console.log(
+            exampleArray1
+        ); // both of the arrays will have the same answer becase its based on reference [ 'khatchig, 8, false, 11']
+        console.log(exampleArray2);
+
+        //es6 spread method // better method less code
+        exampleArray2 = [...exampleArray1]; // this method undraps this values in a new array in es6
+        exampleArray2.push(14);
+        console.log(exampleArray1);
+        console.log(
+            exampleArray2); // in this case the result in exampleArray2 will have the number we pushed and not  both
+
+        // map functionality method
+        exampleArray2 = exampleArray1.map((element) => {
+            return element;
+        })
+        exampleArray2.push(18);
+        console.log(exampleArray1);
+        console.log(
+            exampleArray2); // in this case the result in exampleArray2 will have the number we pushed and not  both
+
+        //Objects in JavaScript
+        let exampleObject = {
+            firstName: 'Khatchig',
+            lastName: 'Garabedian',
+            nationality: ['Armenian, Greek'], // you can nest objects in objects
+            age: '34',
+            address: { // can add properties in a propertie
+                city: 'Athens',
+                Country: 'Greece'
+            }
+        };
+        exampleObject.age = 40; // you can target a key and change the value
+
+        console.log(exampleObject);
+        console.log(exampleObject.firstName); // chaning keys to get specific values in object
+        console.log(exampleObject.address.city);
+        console.log(Object.keys(exampleObject)); // this will print only the keys and not values 
+        console.log(Object.values(exampleObject)); // this will print only the values not keys
+        console.log(exampleObject.hasOwnProperty(
+            'firstName')); //checking if first name has a value with a result of true or false
+
+        //Objects in JavaScript (Challenge)
+        let exampleObject2 = {
+            firstName: 'khatchig'
+        };
+
+        let exampleObject3 = exampleObject2; // connecting objects by reference        
+        // exampleObject3.lastName.midleName = 'Garabedian'; // cant add it because last name is non existing and therefore cant nest midlename 
+        exampleObject3.lastName = 'Garabedian'; // adding last name property because it targets excisting object 
+
+        console.log(exampleObject2);
+        console.log(exampleObject3); // its going to add it in both examples because it passes through reference
+        exampleObject3 = Object.assign({},
+            exampleObject2
+        ); // making a new object and copying the original so its not passing through reference method object.assign
+
+        //Arithmetic Operators in JavaScript
+        let num1 = 5 + 5; // adding
+        let num2 = 10 - 5; //subtracting
+        let num3 = 10 * 5; //multiplaying
+        let num4 = 30 / 10; //dividing
+        let num5 = 58 % 5; // modulo dividing 58 by 5 and returns rimender of numbers
+        let num6 = 5 + 10 - 10 * 5 / 3 %
+            5; // can use multiple arithmatic signs together and still works plus js is inteligent enought to make the order of operations by itself
+
+        console.log(num1);
+        console.log(num2);
+        console.log(num3);
+        console.log(num4);
+        console.log(num5);
+        console.log(num6);
+
+        //Relational Operators in JavaScript
+        let num7 = 30;
+        let num8 = 50;
+        let num9 = '50';
+
+        console.log(num7 >=
+            num8
+        ); // result will be true or false in this case is false because 30 is not equal or smaller than 50 >= grater or equals sign
+        console.log(num7 <= num8); // result will be true because 30 is smaller or equal to 50 <= smaller or equals sign
+        console.log(num8 == num9); // result will be true because it compares the numbers only == equal values sign
+        console.log(num8 !== num9); // result will be false because the numbers are equal != is not equal sign
+        console.log(num8 ===
+            num9
+        ); //  rusult will false because althought  the numbers are the same the type is different one is string and the other is a number === equal values and types sign
+
+        //Relational Operators in JavaScript (Challenge)
+        let num11 = 5 === 5;
+        let num12 = 5 == '5';
+        let num13 = 6 != '6';
+        let num14 = 7 !== '7';
+
+        console.log(num11); // true because both have same numbers
+        console.log(
+            num12
+        ); //true  because both have same numbers althought  have different type since we have == it doesnt matter
+        console.log(
+            num13
+        ); // false because both have same numbers althought  have different type since we have !== it doesnt matter
+        console.log(
+            num14
+        ); // true because both have same numbers and have different type therefore they are not equal so since we have !== it will show us true
+
+        //Increment & Decrement
+        let IncrementExample = 1;
+        console.log(IncrementExample);
+        IncrementExample++; //adds plus 1
+        console.log(IncrementExample);
+        IncrementExample--; //minus 1
+        console.log(IncrementExample);
+        IncrementExample += 20; //adds 20
+        console.log(IncrementExample);
+        IncrementExample -= 4; //minus 4
+        console.log(IncrementExample);
+        IncrementExample *= 2; //multiply by 2
+        console.log(IncrementExample);
+        IncrementExample /= 3; //divide by 3
+        console.log(IncrementExample);
+        IncrementExample %= 2; //modulo by 2
+        console.log(IncrementExample);
+
+        //Increment & Decrement (Challenge)
+        let IncrementExample1 = 15;
+        IncrementExample1++; // change IncrementExample1 by one 
+
+        console.log(IncrementExample1++); //ads line after the line in code
+        console.log(IncrementExample1);
+
+        let IncrementExample2 = 20;
+        ++IncrementExample2;
+
+        console.log(++IncrementExample2); // makes the the operation in the code 
+        console.log(IncrementExample2);
+
+        //If, Else If, Else, And & Or in JavaScript
+        let exampleIf = 5; // we set a value to test
+
+        if (exampleIf ===
+            10) { // test if 
+            console.log('Runs');
+        } else if (
+            true
+        ) { // incase if statement is false then test exampleIf with else if if that is false also then go to else
+            console.log('else if')
+        } else { // incase if & else if are false then run this code
+            console.log('else')
+        }
+
+        if (example === 6 || false === true) { // or sign atleast one statment must be true for the code to run
+            console.log('Runs');
+        } else if (false) {
+            console.log('else if')
+        } else {
+            console.log('else')
+        }
+
+        if (example === 6 && false === true) { // and sign both statments must be true for the code to run
+            console.log('Runs');
+        } else if (false) {
+            console.log('else if')
+        } else {
+            console.log('else')
+        }
+
+        //If, Else If, Else, And, Or in JavaScript (Challenge)
+
+        console.log(10 === 10 && 5 < 4);
+        // false because althought number 10 is equal to 10 ten 5 is not smaller than 4 so only one statment is true and not both
+        console.log(10 === 10 || 5 < 4);
+        // true because number 10 is equal to number 10 but eventhought 5 is not smaller than 4 one statment is true.
+        console.log((5 >= 5 || 4 > 4) && 3 + 2 == 5);
+        // true becase in the or statment  5 equals to 5 and the and statement is true because both of the statments are true
+
+        //Switchin JavaScript
+        let studentAnswer = 'A'; // set a let for an answer to check
+
+        switch (studentAnswer) { // switch method to check with varius code what is true.
+            case 'A': // check if answer is A and then print in log following statement else continew to check with rest
+                console.log('A is wrong.');
+                break; //  brake must be at the end of case so it doesnt run in a loop infinetly
+            case 'B':
+                console.log('B is wrong.');
+                break;
+            case 'C':
+                console.log('C is correct.');
+                break;
+            default: // default value is in case the answer is not in the case values so it gives a default result eg if studentAnswer was D then this would run.
+                console.log('not a real answer.');
+                // since after default we dont run any other code in switch method we dont neet to put brake.
+        }
+
+        //For Loop
+        let total = 0;
+        let numArray = [10, 20, 30, 40, 50, 60, 70, 80];
+
+        // this is a for loop basicaly we set  i to be 0 and check it if its smaller then five to run code and then add 1 with i++ untill it reaches 5
+        for (let i = 0; i < 5; i++) {
+            console.log(i);
+        }
+
+        // in this case we actualy do the loop and keep adding the result of i to the variable total untill the variable i reaches 5
+        for (let i = 0; i < 5; i++) {
+            total += i; //this way we are not changing the value of total but only add on the current value of total
+        }
+        console.log(total); // this will show us the value of total after all the for loops are added
+
+        // in this case we actualy do the loop and keep adding the result of i to the variable total untill the variable i reaches numArray.length so it its dinamic incase we add extra values in an array
+        for (let i = 0; i < numArray.length; i++) {
+
+            total += numArray[i];
+        }
+        console.log(total);
+
+        //While & Do Whilein JavaScript
+
+        //while loop examples
+
+        let count = 0;
+        while (count < 20) { // we are asking for count to incriase by 1 avry time its smaller then 20 with the count++
+            count++;
+            console.log(count); //showing the increase done by code untill it reaches 20
+        }
+        console.log(count); // show count when reaches 20
+
+        while (true) { // we actually set while to be true so it will run code indefinetly if we dont brake it some way
+            count++;
+            console.log(count);
+
+            if (count >= 40) { // using an if statment will do that by saying count >=40 to run brake to brake the loop
+                break;
+            }
+        }
+        console.log(count); // printing the result after loop is done
+
+        //do while loop 
+
+        do {
+            count++;
+            console.log(count);
+
+            if (count >= 40) {
+                break;
+
+            }
+        }
+        while (false)
+        console.log(count);
+
+        //Functions in JavaScript
+
+        function statement() { //we are creating a function with a specific code to run when invoced by as any time in our code so we dont write it again in code
+            console.log('This is the final excersize!!!');
+        }
+        statement(); // with this im calling a fanction to run
+
+        function statement2(num1) { //what we put in () in a function is called a parameter
+            return num1;
+        }
+        console.log(statement2(10)); // with this im calling a fanction to run and adding 10 to it
+        console.log(statement2(30));
+
+        function statement2(num1, num2) { //what we put in () in a function is called a parameter
+            return num1 + num2;
+        }
+        console.log(statement2(10, 6)); // adds the following numbers because of the function 10 becomes num1 and 6 num2 and they add up because of the code in the function and therefore we get the sum of both.
+    </script>
+
+
+
+
+</body>
+
+</html>
+
+</body>
+
+</html>

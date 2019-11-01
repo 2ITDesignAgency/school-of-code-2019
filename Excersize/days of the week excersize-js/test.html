@@ -1,0 +1,118 @@
+<button onclick="offDay()">OffDay</button>
+<button onclick="workDay()">WorkDay</button>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <p id="subtitle"></p>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="dotw.css">
+    <title>Document</title>
+</head>
+<body>
+​
+<script>
+​
+// Create div with id to connect your list start 
+let myDiv = document.createElement('div');
+myDiv.id = 'working-schedule';
+document.body.appendChild(myDiv); 
+// Create div with id to connect your list end 
+// making a list for workdays start
+let weekdays = ["Κυριακή", "Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή", "Σάββατο"]
+let str = '<h1>Working Days Js</h1>' + '<hr class="title-hr">' + '<h3>Created by Khatchig Garabedian</h3>' + '<ul id="workingDays">'
+weekdays.forEach(function(currentDay) {
+  str += '<li>'+  currentDay + '<hr>' + '</li>';
+}); 
+str += '</ul>' + '<button onclick="offDay()">OffDay</button>' + '<button onclick="workDay()">WorkDay</button>';
+document.getElementById("working-schedule").innerHTML = str;
+// making a list for workdays end
+// get the date for today start
+let newDate = new Date();
+let workingDay = newDate.getDay();
+let days = document.getElementById("workingDays"),
+    today = new Date().getDay(); // 0 to 6 where 0 is Sunday
+    //today = 0; 
+    //testing 1
+    // today = 1;
+    //testing 2
+    //today = 2;
+    //testing 3
+    //today = 3;
+    //testing 4
+    //today = 4;
+    //testing 5
+    //today = 5;
+    //testing 6
+    //today = 6;
+    //testing 7
+// get the date for today end
+// give a styling class to working days start
+let element = document.getElementById("workingDays");
+element.classList.add("workingDays");
+element = document.getElementById("working-schedule");
+element.classList.add("working-schedule");
+// give a styling class to working days & off days end
+​
+if (0 < today && today <= 6) {
+days.children[today].id = "green";
+let p = document.getElementById("green");
+p.innerHTML += "<p class='subtitle'>είμαστε ανοιχτά και σας περιμένουμε</p>";
+}
+​
+else{
+days.children[today].id = "red";
+let p = document.getElementById("red");
+p.innerHTML += "<p class='subtitle'>Θα είμαστε κλειστά σας περιμένουμε την Δευτέρα</p>";
+}
+​
+function offDay(){
+    let newDate = new Date();
+    let workingDay = newDate.getDay();
+    
+    let days = document.getElementById("workingDays"),
+        today = 1; // 0 to 6 where 0 is Sunday
+    
+    if (0 < today && today <= 6) {
+    days.children[today].id = "green";
+    p = document.getElementById("green");
+    p.innerHTML += "<p class='subtitle'>είμαστε ανοιχτά και σας περιμένουμε</p>";
+    
+    }
+    else{
+    days.children[today].id = "red";
+    let p = document.getElementById("red");
+    p.innerHTML += "<p class='subtitle'>Θα είμαστε κλειστά σας περιμένουμε την Δευτέρα</p>";
+    }
+    
+    }
+    
+    function workDay(){
+    let newDate = new Date();
+    let workingDay = newDate.getDay();
+    
+    let days = document.getElementById("workingDays"),
+        today = 0; // 0 to 6 where 0 is Sunday
+    
+    if (0 < today && today <= 6) {
+    days.children[today].id = "green";
+    p = document.getElementById("green");
+    p.innerHTML += "<p class='subtitle'>είμαστε ανοιχτά και σας περιμένουμε</p>";
+    
+    }
+    else{
+    days.children[today].id = "red";
+    let p = document.getElementById("red");
+    p.innerHTML += "<p class='subtitle'>Θα είμαστε κλειστά σας περιμένουμε την Δευτέρα</p>";
+    }
+      
+    }
+</script>
+<a href=""><img src="" alt="" width=""></a>
+</body>
+</html>

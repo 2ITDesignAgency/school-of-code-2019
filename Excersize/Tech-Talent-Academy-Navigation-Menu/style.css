@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+body{
+    margin: 0px;
+}
+
+/* main container flex with logo + menu items */
+.main-menu{
+    display: flex;
+    flex-direction: row;
+    background-color: red;
+    align-items: center;
+	justify-content: space-around;
+    height: 5em;
+    padding-left: 10em;
+    padding-right: 10em;
+    padding-top: 5px;
+    margin: 0px;
+
+}
+
+/* logo container styling*/
+.logo{
+    height: 100%;
+    padding-top: 1em;
+    padding-bottom: 0.2em;
+}
+
+/* menu items styling */
+.main-nav-list {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.main-nav-list li a{
+    color: white;
+    list-style: none;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 18px;
+    padding-left: 1.8em;
+    padding-right: 1.8em;
+}
+
+
+/* call to action styling */
+.cta{
+    background-color: black;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+/* hover coloro for menu items */
+.cta:hover {
+    color: #fff;
+}
+
+nav li a:hover{
+    color: #870000;
+}
+
+/* active color for menu items */
+nav li a:active{
+    color: #870000;
+}
