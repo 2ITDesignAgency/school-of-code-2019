@@ -42,7 +42,7 @@ function ascendingOrder() {
         document.querySelector('#here').innerHTML += `<div class="product col-md-3"><strong>Product Name:</strong> ${productsNew[i].name}<br> <strong>Price:</strong> ${productsNew[i].price} €<br> <strong>Price With VAT:</strong> ${productsNew[i].priceWithVat} €`;
     }
 }
-
+// making a function to sort objects by price and and show only products under 500€
 function under500Products () {
     let productover500Index = under500.length;
     document.querySelector('#here').innerHTML = " ";
