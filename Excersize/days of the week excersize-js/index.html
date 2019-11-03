@@ -79,18 +79,18 @@
 
       if (0 < today && today <= 6) {
         document.querySelector("#active>p.subtitle").innerHTML = " ";
-        active.classList.remove("green", "red");
+        document.getElementById("active").removeAttribute("class");
+        document.getElementById("active").removeAttribute("id");
+        let element = document.getElementById("active");
         days.children[today].className = "green";
-        li.id.remove("active");
-        let active = document.getElementById("active");
         days.children[today].id = "active";
         document.querySelector(".green>p.subtitle").innerHTML = "είμαστε ανοιχτά και σας περιμένουμε";
       } else {
         document.querySelector("#active>p.subtitle").innerHTML = " ";
-        ul.id.remove("active");
-        active.classList.remove("green", "red");
+        document.getElementById("active").removeAttribute("class");
+        document.getElementById("active").removeAttribute("id");
+        let element = document.getElementById("active");
         days.children[today].className = "red";
-        let active = document.getElementById("active");
         days.children[today].id = "active";
         document.querySelector(".red>p.subtitle").innerHTML = "Θα είμαστε κλειστά σας περιμένουμε την Δευτέρα";
       }
@@ -103,20 +103,19 @@
         today = 5; // 0 to 6 where 0 is Sunday
 
       if (0 < today && today <= 6) {
-        let elems = document.querySelectorAll("li");
         document.querySelector("#active>p.subtitle").innerHTML = " ";
-        li.id.remove("active");
-        active.classList.remove("green", "red");
+        document.getElementById("active").removeAttribute("class");
+        document.getElementById("active").removeAttribute("id");
+        let element = document.getElementById("active");
         days.children[today].className = "green";
-        let active = document.getElementById("active");
         days.children[today].id = "active";
         document.querySelector(".green>p.subtitle").innerHTML = "είμαστε ανοιχτά και σας περιμένουμε";
       } else {
         document.querySelector("#active>p.subtitle").innerHTML = " ";
-        li.id.remove("active");
-        active.classList.remove("green", "red");
+        document.getElementById("active").removeAttribute("class");
+        document.getElementById("active").removeAttribute("id");
+        let element = document.getElementById("active");
         days.children[today].className = "red";
-        let active = document.getElementById("active");
         days.children[today].id = "active";
         document.querySelector(".red>p.subtitle").innerHTML = "Θα είμαστε κλειστά σας περιμένουμε την Δευτέρα";
       }
