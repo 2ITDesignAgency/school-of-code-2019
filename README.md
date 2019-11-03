@@ -21,3 +21,8 @@
 #### **Status:** Complete
 **Status comments:** Made an html showing the days of the week highligting the current day.
 **Extra:** trying to add 2 buttons for testing reasons to change the value of date to a false or true value still needs some tweeking to work correctly.
+
+### **Exercise 6:** Array Exercise
+#### **Status:** Complete
+**Status comments:** completed all 3 Exercises and have connected both js files to html for the result to work
+**Extra:** added an extra css file just for styling
