@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- OpenLayers Map js -->
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
+    <title>Fetch</title>
+</head>
+
+<body>
+    <!-- html starts -->
+    <!-- section 1 header & form -->
+    <div class="main-canvas">
+        <div class="container-fluid d-flex">
+            <div class="container text-align-center">
+                <h1 class="text-center">Fetch Project JS</h1>
+                <h3 class="text-center">Student: Khatchig Garabedian</h3>
+                <form action="" class="d-flex justify-content-around align-items-center">
+                    <strong>Search by country:</strong>
+                    <input type="text" placeholder="Enter country name..." id="country_name">
+                    <input type="submit" class="btn btn-dark top-btn">
+                </form>
+            </div>
+        </div>
+        <div class="container-fluid main-canvas section-2">
+
+        </div>
+        <!-- section 2 | info & map -->
+        <div class="container-fluid main-canvas section-2">
+            <div class="container d-flex ">
+                <!-- placeholder for country or city info -->
+                <div class="col-md-6 justify-content-start d-flex country">
+                    <div class="row coutry-info">
+                        <div class="col-md-12" id="country-title"></div>
+                        <div class="col-md-6" id="flag"></div>
+                        <div class="col-md-6" id="country"></div>
+                        <div class="col-md-12" id="button-go"></div>
+                    </div>
+                </div>
+                <!-- placeholder for map -->
+                <div class="col-md-6 map" id="map"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- html ends -->
+
+    <!-- javascript start -->
+    <script type="application/javascript">
+        "use strict";
+        // autocomplite start
+
+        // autocomplite end
+        //geting ip from browser and soring it
+        function getIP(json) {
+            let getIp = (json.ip);
+
+            console.log(getIp); //testing i have the browser ip
+
+            //setting URL to get information for ip
+            let URL =
+                `http://api.ipstack.com/${getIp}?access_key=4bf59d9358abb834b927894d8b0689ea`; //geting the correct url with the ip to get country
+            console.log(URL); //testing that it provides correct url
+
+            function handleReponseIP(res) {
+                console.log("Success", res);
+                return res.json(); // => Promise
+            }
+
+            function handleErrorIP(err) {
+                console.error("Fetch error", err);
+            }
+
+            function handleDataIP(data) {
+                const Country = data.country_name;
+                // console.log(Country);
+
+                // setting URL to get information for country
+                let URL =
+                    `https://restcountries.eu/rest/v2/name/${Country}`; // getting the correct url with country to get object
+
+                function handleReponse(res) {
+                    console.log("Success", res);
+                    return res.json(); // => Promise
+                }
+
+                function handleError(err) {
+                    console.error("Fetch error", err);
+                    document.querySelector("#country")
+                        .innerHTML = "<span style='color:tomato'>Error loading data.</span>";
+                }
+
+                function handleData(data) {
+                    const capital = data[0].capital;
+                    const population = data[0].population;
+                    const name = data[0].name;
+                    const flag = data[0].flag;
+                    // const lonLat = data[0].latlng;
+                    // console.log(lonLat);
+                    const longLat = data[0].latlng;
+
+
+                    longLat.reverse();
+                    console.log(typeof longLat);
+                    console.log(longLat);
+                    // let longLatText = JSON.stringify(longLat);
+                    document.querySelector("#country")
+                        .innerHTML =
+                        `<p style= "text-align= justify;">Welcome traveler to the fetch project at the moment your IP Adress: ${getIp}</strong> is located in <strong>${name}</strong> witch as a fun fact you should know that has as capital the city called <strong>${capital}</strong> country has an estimated population of <strong>${(population / 1000000).toFixed(2)} Millions</strong> of people</p>.`;
+                    document.querySelector("#flag")
+                        .innerHTML =
+                        `<img src="${flag}" alt="${flag} flag" width="250px">`;
+                    document.querySelector("#button-go")
+                        .innerHTML =
+                        `<a href="https://en.wikipedia.org/wiki/${name}" class="btn btn-secondary btn-lg btn-block" role="button" aria-pressed="true">Read More</a>`;
+                    document.querySelector("#country-title")
+                        .innerHTML =
+                        `<h1>${name}</h1> <hr>`;
+                    //     document.querySelector("#country")
+                    //         .innerHTML += `
+                    // <p>Country: ${name}</p>
+                    // <p>Capital: ${capital}</p>
+                    // <p>Population: ${population}</p>`;
+                    //using Object {Destruction};
+                    //const { capital, population, name} = data [0];
+
+                    //map code ----------------------------------------------code start here
+                    let longLatEpg =
+                        document.querySelector("#map").innerHTML = " ";
+                    let map = new ol.Map({
+                        target: 'map',
+                        layers: [
+                            new ol.layer.Tile({
+                                source: new ol.source.OSM()
+                            })
+                        ],
+                        view: new ol.View({
+                            center: ol.proj.fromLonLat(longLat),
+                            zoom: 5
+                        })
+                    });
+
+                    // setting URL to get information for country
+                }
+                //map code ----------------------------------------------code end here
+                // console.log(1);
+                fetch(URL)
+                    .then(handleReponse)
+                    .then(handleData)
+                    .catch(handleError);
+
+                const form = document.querySelector("form");
+                form.addEventListener("submit", handleSubmit);
+
+                function handleSubmit(e) {
+                    e.preventDefault();
+                    const loading = document.querySelector("#country")
+                        .innerHTML = "Loading..."
+                    const input = document.querySelector("#country_name");
+                    const countryName = input.value.trim().toLowerCase();
+                    console.log(countryName);
+                    const URL = "https://restcountries.eu/rest/v2/name/" + countryName;
+                    fetch(URL)
+                        .then(handleReponse)
+                        .then(handleData)
+                        .catch(handleError);
+                }
+            }
+
+            fetch(URL)
+                .then(handleReponseIP)
+                .then(handleDataIP)
+                .catch(handleErrorIP);
+
+        }
+    </script>
+    <!-- ipify js us to get ip from browser -->
+    <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+
+    <!-- bootstrap js -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
