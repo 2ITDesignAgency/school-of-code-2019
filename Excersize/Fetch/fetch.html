@@ -148,6 +148,58 @@
 
                     // setting URL to get information for country
                 }
+                function handleDataAfter(data) {
+                    const capital = data[0].capital;
+                    const population = data[0].population;
+                    const name = data[0].name;
+                    const flag = data[0].flag;
+                    // const lonLat = data[0].latlng;
+                    // console.log(lonLat);
+                    const longLat = data[0].latlng;
+
+
+                    longLat.reverse();
+                    console.log(typeof longLat);
+                    console.log(longLat);
+                    // let longLatText = JSON.stringify(longLat);
+                    document.querySelector("#country")
+                        .innerHTML =
+                        `<p style= "text-align= justify;">So traveler you decided to look for <strong>${name}</strong> for your next trip let me tell you some fun facts you should know that has as capital the city called <strong>${capital}</strong> country has an estimated population of <strong>${(population / 1000000).toFixed(2)} Millions</strong> of people</p>.`;
+                    document.querySelector("#flag")
+                        .innerHTML =
+                        `<img src="${flag}" alt="${flag} flag" width="250px">`;
+                    document.querySelector("#button-go")
+                        .innerHTML =
+                        `<a href="https://en.wikipedia.org/wiki/${name}" class="btn btn-secondary btn-lg btn-block" role="button" aria-pressed="true">Read More</a>`;
+                    document.querySelector("#country-title")
+                        .innerHTML =
+                        `<h1>${name}</h1> <hr>`;
+                    //     document.querySelector("#country")
+                    //         .innerHTML += `
+                    // <p>Country: ${name}</p>
+                    // <p>Capital: ${capital}</p>
+                    // <p>Population: ${population}</p>`;
+                    //using Object {Destruction};
+                    //const { capital, population, name} = data [0];
+
+                    //map code ----------------------------------------------code start here
+                    let longLatEpg =
+                        document.querySelector("#map").innerHTML = " ";
+                    let map = new ol.Map({
+                        target: 'map',
+                        layers: [
+                            new ol.layer.Tile({
+                                source: new ol.source.OSM()
+                            })
+                        ],
+                        view: new ol.View({
+                            center: ol.proj.fromLonLat(longLat),
+                            zoom: 5
+                        })
+                    });
+
+                    // setting URL to get information for country
+                }
                 //map code ----------------------------------------------code end here
                 // console.log(1);
                 fetch(URL)
@@ -168,7 +220,7 @@
                     const URL = "https://restcountries.eu/rest/v2/name/" + countryName;
                     fetch(URL)
                         .then(handleReponse)
-                        .then(handleData)
+                        .then(handleDataAfter)
                         .catch(handleError);
                 }
             }

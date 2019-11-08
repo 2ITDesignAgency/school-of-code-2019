@@ -32,9 +32,6 @@ form {
     width: 100% !important;
     padding: 0px 0px;
     margin: 10px 0px;
-    
-
-    /* border: 5px solid black; */
   }
 #country_name {
     width: 65%;
@@ -51,4 +48,11 @@ form {
     font-size: 30px;
     text-align: center;
     font-weight: 500;
+}
+
+.ol-attribution{
+    display: none;
+}
+.ol-rotate{
+    display: none;
 }
