@@ -79,7 +79,6 @@
         fetch(URL)
             .then(handleReponse)
             .then(handleData)
-            .then(handleData)
             .catch(handleError);
         // initial fetch and adding joke
 
@@ -87,18 +86,7 @@
         submitButton.addEventListener("click", submit);
 
         function submit() {
-            // URL = "https://api.chucknorris.io/jokes/random";
             URL = "https://official-joke-api.appspot.com/random_joke";
-            console.log(URL);
-
-            function handleReponse(res) {
-                console.log("Success", res);
-                return res.json(); // => Promise
-            }
-
-            function handleError(err) {
-                console.error("Fetch error", err);
-            }
 
             function handleData(data) {
                 const setup = data.setup;
@@ -114,7 +102,6 @@
 
             fetch(URL)
                 .then(handleReponse)
-                .then(handleData)
                 .then(handleData)
                 .catch(handleError);
 
