@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jokes evry day</title>
+    <link rel="stylesheet" href="jokes_style.css">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- html start here-->
+    <div class="container-fluid main-canvas">
+        <div class="container main-container">
+
+            <!-- contaienr title -->
+            <div class="row">
+                <!-- title -->
+                <div class="col-xs-1-12 mx-auto">
+                    <h1 class="text-center">Joke Fetch Project JS</h1>
+                    <h3 class="text-center">Student: Khatchig Garabedian</h3>
+                </div>
+            </div>
+
+            <!-- container image + button + joke  -->
+            <div class="row content shadow d-flex">
+                <!-- image + button -->
+                <div class="col-md-6">
+                    <img src="https://res.cloudinary.com/teepublic/image/private/s--xC6Q_lbj--/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1516826282/production/designs/2305879_0.jpg"
+                        alt="funny picture" width="100%">
+                    <br>
+                    <!-- <input type="submit" class="btn btn-primary btn-block submit" id="submit"> -->
+                    <a name="random joke" id="submit" class="btn btn-primary btn-block submit" href="#" role="button" type="submit">Next Joke</a>
+                </div>
+                <!-- joke -->
+                <div class="col-md-6" id="joke">
+                    <h3 id="setup"></h3>
+                    <h5 id="punchline"></h5>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- html ends here -->
+
+
+    <!-- javascript start -->
+    <script>
+        "use strict";
+        let URL = "https://official-joke-api.appspot.com/random_joke";
+        // let URL = "https://api.chucknorris.io/jokes/random";
+
+        function handleReponse(res) {
+            console.log("Success", res);
+            return res.json(); // => Promise
+        }
+
+        function handleError(err) {
+            console.error("Fetch error", err);
+        }
+
+        function handleData(data) {
+            const setup = data.setup;
+            // const setup = data.value;
+            console.log(setup); //  checking im getting correct data
+            const punchline = data.punchline;
+            console.log(punchline); //  checking im getting correct data
+            document.querySelector("#setup")
+                .innerHTML = setup;
+            document.querySelector("#punchline")
+                .innerHTML = `${punchline} `;
+
+        }
+
+        fetch(URL)
+            .then(handleReponse)
+            .then(handleData)
+            .then(handleData)
+            .catch(handleError);
+        // initial fetch and adding joke
+
+        const submitButton = document.querySelector("#submit");
+        submitButton.addEventListener("click", submit);
+
+        function submit() {
+            // URL = "https://api.chucknorris.io/jokes/random";
+            URL = "https://official-joke-api.appspot.com/random_joke";
+            console.log(URL);
+
+            function handleReponse(res) {
+                console.log("Success", res);
+                return res.json(); // => Promise
+            }
+
+            function handleError(err) {
+                console.error("Fetch error", err);
+            }
+
+            function handleData(data) {
+                const setup = data.setup;
+                // const setup = data.value;
+                console.log(setup); //  checking im getting correct data
+                const punchline = data.punchline;
+                console.log(punchline); //  checking im getting correct data
+                document.querySelector("#setup")
+                    .innerHTML = setup;
+                document.querySelector("#punchline")
+                    .innerHTML = `${punchline} `;
+            }
+
+            fetch(URL)
+                .then(handleReponse)
+                .then(handleData)
+                .then(handleData)
+                .catch(handleError);
+
+        }
+    </script>
+
+
+    <!-- javascript end -->
+
+    <!-- js script file links -->
+    <!-- bootstrap js -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
