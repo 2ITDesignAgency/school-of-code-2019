@@ -8,15 +8,31 @@
     background-color: lightgrey; 
     font-family: Arial, sans-serif;
 }
-.country { 
-    background: white; 
+.country-info { 
+    background: white !important; 
     padding: 10px;
     margin: 10px 0px;
     font-size: 15px;
-    /* text-align: justify; */
-    /* border: 5px solid black; */
+    text-align: justify;
+    border: 1px solid black;
     box-shadow: 0px 0px 12px rgba(0,0,0,0.4);
 }
+
+#country_name_input {
+    width: 65%;
+    border-radius: 5px;
+}
+.top-btn{
+    width: 20%;
+}
+
+
+.country-info h1 {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 500;
+}
+
 form {
     border: 1px solid gray;
     padding: 10px;
@@ -33,26 +49,9 @@ form {
     padding: 0px 0px;
     margin: 10px 0px;
   }
-#country_name {
-    width: 65%;
-}
-.top-btn{
-    width: 20%;
-}
 
-.country-info{
-    padding-top:50px !important;
-}
-
-.country h1 {
-    font-size: 30px;
-    text-align: center;
-    font-weight: 500;
-}
-
-.ol-attribution{
-    display: none;
-}
-.ol-rotate{
+ ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
     display: none;
 }

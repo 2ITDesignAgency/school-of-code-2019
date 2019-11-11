@@ -14,40 +14,73 @@
 </head>
 
 <body>
-    <!-- html starts -->
-    <!-- section 1 header & form -->
-    <div class="main-canvas">
-        <div class="container-fluid d-flex">
-            <div class="container text-align-center">
-                <h1 class="text-center">Nations Fetch Project JS</h1>
-                <h3 class="text-center">Student: Khatchig Garabedian</h3>
-                <form action="" class="d-flex justify-content-around align-items-center">
-                    <strong>Search by country:</strong>
-                    <input type="text" placeholder="Enter country name..." id="country_name">
-                    <input type="submit" class="btn btn-dark top-btn">
-                </form>
-            </div>
-        </div>
-        <div class="container-fluid main-canvas section-2">
 
-        </div>
-        <!-- section 2 | info & map -->
-        <div class="container-fluid main-canvas section-2">
-            <div class="container d-flex ">
-                <!-- placeholder for country or city info -->
-                <div class="col-md-6 justify-content-start d-flex country">
-                    <div class="row coutry-info">
+    <div class="container-fluid main-canvas">
+        <div class="container">
+            <div class="row mx-auto">
+                <!-- title -->
+                <div class="col-md-12">
+                    <h1 class="text-center">Nations Fetch Project JS</h1>
+                    <h3 class="text-center">Student: Khatchig Garabedian</h3>
+                    <form action="" class="mx-auto">
+                        <strong>Search by country:</strong>
+                        <input type="text" placeholder="Enter country name..." id="country_name_input">
+                        <input type="submit" class="btn btn-dark top-btn">
+                    </form>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="row country-info">
                         <div class="col-md-12" id="country-title"></div>
                         <div class="col-md-6" id="flag"></div>
                         <div class="col-md-6" id="country"></div>
                         <div class="col-md-12" id="button-go"></div>
                     </div>
                 </div>
-                <!-- placeholder for map -->
                 <div class="col-md-6 map" id="map"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mx-auto country-info">
+                    <div class="col-md-12">
+                        <div class="row d-flex">
+                            <div class="col-md-3">
+                                <img class="img-fluid" id="image1" src="" alt="Card image cap">
+                            </div>
+                            <div class="col-md-3">
+                                <img class="img-fluid" id="image2" src="" alt="Card image cap">
+                            </div>
+                            <div class="col-md-3">
+                                <img class="img-fluid" id="image3" src="" alt="Card image cap">
+                            </div>
+                            <div class="col-md-3">
+                                <img class="img-fluid" id="image4" src="" alt="Card image cap">
+                            </div>
+                        </div>
+                        <div class="row d-flex">
+                            <div class="col-md-3">
+                                <img class="img-fluid" id="image5" src="" alt="Card image cap">
+                            </div>
+                            <div class="col-md-3">
+                                <img class="img-fluid" id="image6" src="" alt="Card image cap">
+                            </div>
+                            <div class="col-md-3">
+                                <img class="img-fluid" id="image7" src="" alt="Card image cap">
+                            </div>
+                            <div class="col-md-3">
+                                <img class="img-fluid" id="image8" src="" alt="Card image cap">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+
+    <!-- html starts -->
+
 
     <!-- html ends -->
 
@@ -98,15 +131,10 @@
                     const population = data[0].population;
                     const name = data[0].name;
                     const flag = data[0].flag;
-                    // const lonLat = data[0].latlng;
-                    // console.log(lonLat);
                     const longLat = data[0].latlng;
 
 
                     longLat.reverse();
-                    console.log(typeof longLat);
-                    console.log(longLat);
-                    // let longLatText = JSON.stringify(longLat);
                     document.querySelector("#country")
                         .innerHTML =
                         `<p style= "text-align= justify;">Welcome traveler to the fetch project at the moment your IP Adress: ${getIp}</strong> is located in <strong>${name}</strong> witch as a fun fact you should know that has as capital the city called <strong>${capital}</strong> country has an estimated population of <strong>${(population / 1000000).toFixed(2)} Millions</strong> of people</p>.`;
@@ -119,13 +147,6 @@
                     document.querySelector("#country-title")
                         .innerHTML =
                         `<h1>${name}</h1> <hr>`;
-                    //     document.querySelector("#country")
-                    //         .innerHTML += `
-                    // <p>Country: ${name}</p>
-                    // <p>Capital: ${capital}</p>
-                    // <p>Population: ${population}</p>`;
-                    //using Object {Destruction};
-                    //const { capital, population, name} = data [0];
 
                     //map code ----------------------------------------------code start here
                     let longLatEpg =
@@ -144,21 +165,65 @@
                     });
 
                     // setting URL to get information for country
+                    let URL =
+                        `https://api.unsplash.com/search/photos?page=1&query=${name}&orientation=landscape&client_id=19e1cc777ca105877410c0f555bdc2cc3e7fd2d046d0018186bd5c79ca72d603`;
+
+                    function handleReponseIP(res) {
+                        console.log("Success", res);
+                        return res.json(); // => Promise
+                    }
+
+                    function handleErrorIP(err) {
+                        console.error("Fetch error", err);
+                    }
+
+                    URL =
+                        `https://api.unsplash.com/search/photos?page=1&query=${name}&orientation=landscape&client_id=19e1cc777ca105877410c0f555bdc2cc3e7fd2d046d0018186bd5c79ca72d603`;
+                    console.log(URL);
+
+                    function handleReponseImage(res) {
+                        console.log("Success", res);
+                        return res.json(); // => Promise
+                    }
+
+                    function handleErrorImage(err) {
+                        console.error("Fetch error", err);
+                    }
+
+                    function handleDataImage(data) {
+                        let image1 = data.results[0].urls.regular;
+                        let image2 = data.results[1].urls.regular;
+                        let image3 = data.results[2].urls.regular;
+                        let image4 = data.results[9].urls.regular;
+                        let image5 = data.results[4].urls.regular;
+                        let image6 = data.results[5].urls.regular;
+                        let image7 = data.results[6].urls.regular;
+                        let image8 = data.results[7].urls.regular;
+                        document.getElementById("image1").src = image1;
+                        document.getElementById("image2").src = image2;
+                        document.getElementById("image3").src = image3;
+                        document.getElementById("image4").src = image4;
+                        document.getElementById("image5").src = image5;
+                        document.getElementById("image6").src = image6;
+                        document.getElementById("image7").src = image7;
+                        document.getElementById("image8").src = image8;
+                    }
+
+                    fetch(URL)
+                        .then(handleReponseImage)
+                        .then(handleDataImage)
+                        .catch(handleErrorImage);
                 }
+
                 function handleDataAfter(data) {
                     const capital = data[0].capital;
                     const population = data[0].population;
                     const name = data[0].name;
                     const flag = data[0].flag;
-                    // const lonLat = data[0].latlng;
-                    // console.log(lonLat);
                     const longLat = data[0].latlng;
 
 
                     longLat.reverse();
-                    console.log(typeof longLat);
-                    console.log(longLat);
-                    // let longLatText = JSON.stringify(longLat);
                     document.querySelector("#country")
                         .innerHTML =
                         `<p style= "text-align= justify;">So traveler you decided to look for <strong>${name}</strong> for your next trip let me tell you some fun facts you should know that has as capital the city called <strong>${capital}</strong> country has an estimated population of <strong>${(population / 1000000).toFixed(2)} Millions</strong> of people</p>.`;
@@ -171,13 +236,6 @@
                     document.querySelector("#country-title")
                         .innerHTML =
                         `<h1>${name}</h1> <hr>`;
-                    //     document.querySelector("#country")
-                    //         .innerHTML += `
-                    // <p>Country: ${name}</p>
-                    // <p>Capital: ${capital}</p>
-                    // <p>Population: ${population}</p>`;
-                    //using Object {Destruction};
-                    //const { capital, population, name} = data [0];
 
                     //map code ----------------------------------------------code start here
                     let longLatEpg =
@@ -195,6 +253,42 @@
                         })
                     });
 
+                    URL =
+                        `https://api.unsplash.com/search/photos?page=1&query=${name}&orientation=landscape&client_id=19e1cc777ca105877410c0f555bdc2cc3e7fd2d046d0018186bd5c79ca72d603`;
+                    console.log(URL);
+
+                    function handleReponseImage(res) {
+                        console.log("Success", res);
+                        return res.json(); // => Promise
+                    }
+
+                    function handleErrorImage(err) {
+                        console.error("Fetch error", err);
+                    }
+
+                    function handleDataImage(data) {
+                        let image1 = data.results[0].urls.regular;
+                        let image2 = data.results[1].urls.regular;
+                        let image3 = data.results[2].urls.regular;
+                        let image4 = data.results[9].urls.regular;
+                        let image5 = data.results[4].urls.regular;
+                        let image6 = data.results[5].urls.regular;
+                        let image7 = data.results[6].urls.regular;
+                        let image8 = data.results[7].urls.regular;
+                        document.getElementById("image1").src = image1;
+                        document.getElementById("image2").src = image2;
+                        document.getElementById("image3").src = image3;
+                        document.getElementById("image4").src = image4;
+                        document.getElementById("image5").src = image5;
+                        document.getElementById("image6").src = image6;
+                        document.getElementById("image7").src = image7;
+                        document.getElementById("image8").src = image8;
+                    }
+
+                    fetch(URL)
+                        .then(handleReponseImage)
+                        .then(handleDataImage)
+                        .catch(handleErrorImage);
                     // setting URL to get information for country
                 }
                 //map code ----------------------------------------------code end here
@@ -211,7 +305,7 @@
                     e.preventDefault();
                     const loading = document.querySelector("#country")
                         .innerHTML = "Loading..."
-                    const input = document.querySelector("#country_name");
+                    const input = document.querySelector("#country_name_input");
                     const countryName = input.value.trim().toLowerCase();
                     console.log(countryName);
                     const URL = "https://restcountries.eu/rest/v2/name/" + countryName;
