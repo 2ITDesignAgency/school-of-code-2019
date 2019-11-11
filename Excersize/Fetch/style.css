@@ -55,3 +55,7 @@ form {
     margin-bottom: 1rem;
     display: none;
 }
+.gallery img{
+    max-width: 250px;
+    padding: 5px;
+}
