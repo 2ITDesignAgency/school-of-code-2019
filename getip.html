@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css"
+    type="text/css">
+  <style>
+    .map {
+      height: 400px;
+      width: 100%;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
+  <title>OpenLayers example</title>
+</head>
+
+<body>
+  <h2>My Map</h2>
+  <div id="map" class="map"></div>
+  <script type="text/javascript">
+    URL =
+      `https://api.unsplash.com/search/photos?page=1&query=${name}&orientation=landscape&client_id=19e1cc777ca105877410c0f555bdc2cc3e7fd2d046d0018186bd5c79ca72d603`;
+    console.log(URL);
+
+    function handleReponseImage(res) {
+      console.log("Success", res);
+      return res.json(); // => Promise
+    }
+
+    function handleErrorImage(err) {
+      console.error("Fetch error", err);
+    }
+
+    function handleDataImage(data) {
+      // let image1 = data.results[0].urls.regular;
+      // let image2 = data.results[1].urls.regular;
+      // let image3 = data.results[2].urls.regular;
+      // let image4 = data.results[3].urls.regular;
+      // let image5 = data.results[4].urls.regular;
+      // let image6 = data.results[5].urls.regular;
+      // let image7 = data.results[6].urls.regular;
+      // let image8 = data.results[7].urls.regular;
+      // document.getElementById("image1").src = image1;
+      // document.getElementById("image2").src = image2;
+      // document.getElementById("image3").src = image3;
+      // document.getElementById("image4").src = image4;
+      // document.getElementById("image5").src = image5;
+      // document.getElementById("image6").src = image6;
+      // document.getElementById("image7").src = image7;
+      // document.getElementById("image8").src = image8;
+    }
+
+    fetch(URL)
+      .then(handleReponseImage)
+      .then(handleDataImage)
+      .catch(handleErrorImage);
+  </script>
+</body>
+
+</html>
