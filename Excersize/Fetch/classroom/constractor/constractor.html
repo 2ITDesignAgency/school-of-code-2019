@@ -35,9 +35,11 @@
             }
         }
         student1.createEl().render();
-        let counter = 10;
+        
+        // let counter = 10;
+
         function Student( name, surname, email, gender ){
-            counter++;
+            Student.counter++;
             this.name = name;
             this.surname = surname;
             this.email = email;
@@ -45,8 +47,11 @@
             if ( gender === "f" ){
                 url_gender = "women";
             } 
-            this.image = `https://randomuser.me/api/portraits/${url_gender}/${counter}.jpg`;
+            this.image = `https://randomuser.me/api/portraits/${url_gender}/${Student.counter}.jpg`;
         }
+
+        Student.counter = 10;
+
         // Prototype: set of reusable object methods
         // {}
         Student.prototype.createEl = function(){

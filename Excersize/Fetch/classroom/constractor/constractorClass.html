@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Student {
+            static counter = 10;
+            constructor(name, surname, email, gender) {
+                Student.counter++;
+                this.name = name;
+                this.surname = surname;
+                this.email = email;
+                let url_gender = "men";
+                if (gender === "f") {
+                    url_gender = "women";
+                }
+                this.image = `https://randomuser.me/api/portraits/${url_gender}/${Student.counter}.jpg`;
+            }
+
+            creatEl() {
+                const template = `
+                    <div style='border:1px solid'>
+                        <p>Fullname: ${this.name} ${this.surname} </p>
+                        <p>Email: ${this.email}</p>
+                        <img src="${this.image}" />
+                    </div>
+                `;
+                this.template = template;
+                return this;
+            }
+
+            render() {
+                document.body.innerHTML += this.template;
+            }
+        }
+        const student1 = new Student("Jane", "Smith", "jsmith@net.com", "f");
+        student1.createEl().render();
+        const student2 = new Student("John", "Doe", "jdoe@net.com", "m");
+        student2.createEl().render();
+    </script>
+</body>
+
+</html>

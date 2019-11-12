@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="text here">
+    <script>;
+        console.log("kostas".length); // length of string
+        console.log("kostas".indexOf("ko")); // where the search is found
+        console.log("kostas".indexOf("o"));
+        console.log("kostas".indexOf("ko"));
+        console.log("kostas".indexOf("z"));
+        console.log("Javascript".indexOf("Java") > -1);
+        console.log("Javascript".indexOf("Java") === 0);
+        console.log("Javascript".indexOf("Script") === 0);    
+        console.log("Javascript".replace("Java", "Python")); // replace text with python 
+        console.log("Javascript".replace("java", "Python")); //cant replace text because is not found javascript is case sensitive
+        const o = {a:1, b:2};
+        for(prop in o){
+            console.log(prop);// console.log keys
+            console.log(o[prop]); // consolo.log values
+        }
+
+
+    document.querySelector("input").addEventListener("keyup", function(e){
+        console.log(e.type);
+        console.log(e.target);
+        console.log(this.value);
+    });
+        </script>
+</body>
+</html>
