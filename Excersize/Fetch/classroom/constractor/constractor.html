@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        // Template Literals (Backticks)
+        const a = "First";
+        const b = "Second";
+        function renderFn(){
+            document.body.innerHTML += this.template;
+        }
+        const student1 = {
+            name: "John",
+            surname: "Doe",
+            email: "johndoe@gmail.com",
+            lessons: [ "JavaScript", "HTML", "CSS" ],
+            image:"https://randomuser.me/api/portraits/men/10.jpg",
+            render: renderFn,
+            createEl: function(){
+                const template = `
+                    <div style='border:1px solid'>
+                        <p>Fullname: ${this.name} ${this.surname} </p>
+                        <p>Email: ${this.email}</p>
+                        <img src="${this.image}" />
+                    </div>
+                `;                
+                this.template = template;
+                return this;
+            }
+        }
+        student1.createEl().render();
+        let counter = 10;
+        function Student( name, surname, email, gender ){
+            counter++;
+            this.name = name;
+            this.surname = surname;
+            this.email = email;
+            let url_gender = "men";
+            if ( gender === "f" ){
+                url_gender = "women";
+            } 
+            this.image = `https://randomuser.me/api/portraits/${url_gender}/${counter}.jpg`;
+        }
+        // Prototype: set of reusable object methods
+        // {}
+        Student.prototype.createEl = function(){
+                const template = `
+                    <div style='border:1px solid'>
+                        <p>Fullname: ${this.name} ${this.surname} </p>
+                        <p>Email: ${this.email}</p>
+                        <img src="${this.image}" />
+                    </div>
+                `;                
+                this.template = template;
+                return this;
+        }
+        // Student.prototype === { createEl: ...Fn }
+        Student.prototype.render = function(){
+            document.body.innerHTML += this.template;
+        }
+        const student2 = new Student( "Jane", "Smith", "jsmith@net.com", "f" );
+        student2.createEl().render();
+        const student3 = new Student( "John", "Doe", "jdoe@net.com", "m" );
+        student3.createEl().render();
+        
+    </script>
+</body>
+</html>
