@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="country_a"></div>
+    <div id="country_b"></div>
+    <button>Load</button>
+    <script>
+        const URLa = "https://restcountries.eu/rest/v2/name/italy";
+        const URLb = "https://restcountries.eu/rest/v2/name/portugal";
+        const button = document.querySelector("button");
+
+        button
+            .addEventListener("click", async function (event) {
+                this.innerText = "Loading...";
+                const list = await loadCountryData();
+                console.log(list);
+                if (list.success){
+                    this.innerText="Load";
+                }else{
+                    this.innerText="Load (Failure)";
+                }
+                // Promise
+                // loadCountryData()
+                //     .then((list) => {
+                //         console.log(list);
+                //     })
+            });
+
+        async function loadCountryData(){
+            try {
+                const repsonse = await fetch(URLa);
+                const countryA = await repsonse.json();
+                const response2 = await fetch(URLb);
+                const countryB = await response2.json();
+                return [countryA, countryB]
+                return { success: true, data: [countryA, countryB] };
+                console.log(countryA);
+                button.innerText = "Load";
+            }catch(e){
+                return{ success: false, error: e };
+            }
+        }
+        // console.log( gh );
+    </script>
+</body>
+
+</html>
