@@ -11,7 +11,7 @@ const products = [
 ];
 
 // making a copy of an array and adding a new property with .map method
-let productsNew = products.map(x => {
+const  productsNew = products.map(x => {
     x.priceWithVat = Number(x.price) * 1.23;
     return x
 })

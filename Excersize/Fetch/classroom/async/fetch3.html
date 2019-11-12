@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <a name="" id="submit" class="btn btn-primary btn-block submit" href="#" role="button" type="submit">Try Me</a>
+    <p id="info"></p>
+
+    <script>
+        const submitButton = document.querySelector("#submit");
+        submitButton.addEventListener("click", submit);
+
+
+        function submit() {
+            let URL =
+                `https://restcountries.eu/rest/v2/name/france`;
+
+            function handleReponse(res) {
+                console.log("Success", res);
+                return res.json(); // => Promise
+            }
+
+            function handleError(err) {
+                console.error("Fetch error", err);
+            }
+
+            function handleData(data) {
+                const loading = document.querySelector("#info")
+                    .innerHTML = "Loading..."
+                const capitalFirst = data[0].capital;
+                const populationFirst = data[0].population;
+                document.querySelector("#info")
+                    .innerHTML =
+                    `Capital: ${capitalFirst} <br> Population ${populationFirst}`;
+
+                URL =
+                    `https://restcountries.eu/rest/v2/name/armenia`;
+
+                function handleReponse(res) {
+                    console.log("Success", res);
+                    return res.json(); // => Promise
+                }
+
+                function handleError(err) {
+                    console.error("Fetch error", err);
+                }
+
+                function handleData(data) {
+                    const capitalSecond = data[0].capital;
+                    const populationSecond = data[0].population;
+                    document.querySelector("#info")
+                        .innerHTML +=
+                        `<br>Capital: ${capitalSecond} <br> Population ${populationSecond}`;
+                }
+                fetch(URL)
+                    .then(handleReponse)
+                    .then(handleData)
+                    .catch(handleError);
+            }
+
+            fetch(URL)
+                .then(handleReponse)
+                .then(handleData)
+                .catch(handleError);
+        }
+    </script>
+</body>
+
+</html>
