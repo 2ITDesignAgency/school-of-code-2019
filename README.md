@@ -26,3 +26,7 @@
 #### **Status:** Complete
 **Status comments:** completed all 3 Exercises and have connected both js files to html for the result to work.  
 **Extra:** added an extra css file just for styling
+
+### **Exercise 7:** JSON Fetch Exercise js
+#### **Status:** Complete
+**Extra:** made the code to get ip and find location on load then used the country api to find country info and integrated unsplush api to use the country keyword to show images finally used country variable at the end of wikipedia link to link the button to read more so it goes to country page in wikipedia.
