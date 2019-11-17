@@ -19,7 +19,9 @@
     <input autofocus type="text" id="number" name="number" placeholder="Enter telephone number">
   </div>
 
-  <div class="found"></div>
+  <div class="">
+    <ul class="found"></ul>
+  </div>
 
   <script>
     // contact object
@@ -30,21 +32,46 @@
       sofia: 6986300400,
       chris: 6987500500,
       marina: 6944600600
-    }
-    // Adding example phones in html as examples to use
-    for (let numbers in contacts) {
-      let tryout = document.querySelector(".tryout");
-      tryout.innerHTML += ` ${contacts[numbers]},`;
+      // khatchig: 6972348949
     }
 
+    // convert object keys to an array
+    let contactsNumber = Object.keys(contacts)
+      .map(function (key) {
+        return contacts[key];
+      });
+
+    // check if its converted to array
+    console.log(contactsNumber);
+
+
+    // print array to numbers to try
+    let tryout = document.querySelector(".tryout");
+    tryout.innerHTML += contactsNumber.join(", ");
+
+    // Converted all numbers in array to strings
+
+    let newContacts = contactsNumber.map(String)
+    console.log(newContacts); // check if array numbers are string
+
+    //--------------------------------------correct do not change----------------------
+
+    //connects input with keyup event listener
     let inputNumber = document.querySelector("#number");
     inputNumber.addEventListener('keyup', logKey);
 
     function logKey(e) {
       let inputNumberText = inputNumber.value;
       let found = document.querySelector('.found');
-      found.innerHTML= inputNumber.value;
+      found.innerHTML = " ";
 
+      newContacts.map(contact => {
+        inputNumber.value.split(" ").map(mobileNumber => {
+          if (contact.indexOf(mobileNumber) != -1){
+            found.innerHTML += `${contact} </br>`;
+          }
+        })
+      })
     }
   </script>
 
