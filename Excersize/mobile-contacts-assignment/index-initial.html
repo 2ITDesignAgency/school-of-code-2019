@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>EventLoop | IRL | Mobile Phone Contacts Auto Suggest Mechanism</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <div class="tryout">
+    <p>Numbers to try:</p>
+    <p><span></span></p>
+  </div>
+  <div class="mobile">
+    <label for="number">Send SMS</label>
+    <input autofocus type="text" id="number" name="number" placeholder="Enter telephone number">
+  </div>
+
+  <div class="">
+    <ul class="found"></ul>
+  </div>
+
+  <script>
+    // contact object
+    const contacts = {
+      kostas: 6986100100,
+      maria: 6986100200,
+      george: 6986300300,
+      sofia: 6986300400,
+      chris: 6987500500,
+      marina: 6944600600
+      // khatchig: 6972348949
+    }
+
+    // convert object keys to an array
+    let contactsNumber = Object.keys(contacts)
+      .map(function (key) {
+        return contacts[key];
+      });
+
+    // check if its converted to array
+    console.log(contactsNumber);
+
+
+    // print array to numbers to try
+    let tryout = document.querySelector(".tryout");
+    tryout.innerHTML += contactsNumber.join(", ");
+
+    // Converted all numbers in array to strings
+
+    let newContacts = contactsNumber.map(String)
+    console.log(newContacts); // check if array numbers are string
+
+    //--------------------------------------correct do not change----------------------
+
+    //connects input with keyup event listener
+    let inputNumber = document.querySelector("#number");
+    inputNumber.addEventListener('keyup', logKey);
+
+    function logKey(e) {
+      let inputNumberText = inputNumber.value;
+      let found = document.querySelector('.found');
+      found.innerHTML = " ";
+
+      newContacts.map(contact => {
+        inputNumber.value.split(" ").map(mobileNumber => {
+          if (contact.indexOf(mobileNumber) != -1){
+            found.innerHTML += `${contact} </br>`;
+          }
+        })
+      })
+    }
+  </script>
+
+</body>
+
+</html>
