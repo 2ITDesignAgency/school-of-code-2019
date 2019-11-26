@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Basic DOM</title>
+</head>
+
+<body>
+    <h1>Title</h1>
+    <article id="featured">Content</article>
+    <p class="post">one</p>
+    <p class="post">two</p>
+    <button>click me</button>
+    <!-- <script src="jquery-3.4.1.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+    </script>
+    <script>
+        console.log( jQuery );
+        function myApp(){
+            $("h1").text("Dyniamic Title!");
+            const featured = $('#featured');
+            featured.attr("style","border: 2px solid");
+            //margin-top = marginTop
+            featured.css({
+                background: "orange",
+                fontSize: "20px",
+                padingTope: "30px"
+            })
+            featured.css("color","tomato");
+            function handlePosts(index, post){
+                const $post = $(post);
+                $post.html(
+                    $post.html() + " <mark>post</mark>");
+                console.log(post);
+            }
+            // const post = $('.posts');
+            // $(".post").html("<mark>42</mark>");
+            $(".post").css("background","green");
+            $(".post").each(handlePosts);
+        }
+        $( myApp ); //$ = JQuery
+    </script>
+    <p class="last">Last</p>
+</body>
+
+</html>

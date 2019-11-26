@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Basic DOM</title>
+</head>
+
+<body>
+    <h1>Title</h1>
+    <article id="featured">Content</article>
+    <p class="post">one</p>
+    <p class="post">two</p>
+    <button>click me</button>
+
+    <script>
+        document.querySelector("h1").innerText = "Dynamic Title!";
+
+        const featured = document.querySelector('#featured');
+        featured.style.border = "2px solid";
+        const posts = document.querySelectorAll(".post");
+
+        function handlePosts(post) {
+            console.log(post);
+            post.innerHTML += " <mark>posts</mark>";
+            console.log(post);
+        }
+        posts.forEach(handlePosts);
+
+        const btn = document.querySelector("button")
+        btn.addEventListener("click", function(){
+            posts[1].remove();
+        });
+    </script>
+</body>
+
+</html>
