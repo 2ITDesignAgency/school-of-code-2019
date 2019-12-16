@@ -7,7 +7,7 @@
 
 ### **Exercise 2:** Epignosis Web Page Bootstrap & Flexbox
 #### **Status:** Complete
-**Status comments:** Replicated Epignosis Web Page with bootsrap & flexbox method form bootstrap
+**Status comments:** Replicated Epignosis Web Page with bootsrap & flexbox method
 
 ### **Exercise 3:** Scrimba js
 #### **Status:** Complete
