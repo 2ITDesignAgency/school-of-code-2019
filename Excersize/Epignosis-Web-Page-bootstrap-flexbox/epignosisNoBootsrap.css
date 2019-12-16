@@ -1,0 +1,579 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+body {
+  margin: 0px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+blockquote {
+  font-family: "Poppins", sans-serif;
+}
+/* development css */
+.test {
+  border: 5px solid orange;
+}
+
+/* main container flex with logo + menu items */
+.main-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 5em;
+  padding-left: 10em;
+  padding-right: 10em;
+  padding-top: 5px;
+  margin: 0px;
+}
+
+/* logo container styling*/
+.logo {
+  height: 100%;
+  padding-top: 1em;
+  padding-bottom: 0.2em;
+}
+
+/* menu items styling */
+.main-nav-list {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-nav-list li a {
+  color: #152d45;
+  list-style: none;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  line-height: 18px;
+  padding-left: 1.8em;
+  padding-right: 1.8em;
+}
+
+nav li a:hover {
+  color: #152d45;
+}
+
+/* active color for menu items */
+nav li a:active {
+  color: #152d45;
+}
+
+/* section 1 css start */
+.section-1 {
+  background-image: url("media/header-graphic.svg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right;
+  background-position-y: -13rem;
+  background-position-x: 55rem;
+  width: 100%;
+  height: auto;
+}
+.hero-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-left: 23em;
+  padding-right: 10em;
+  padding-top: 6em;
+  margin: 0px;
+}
+
+.hero-blurb {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 22em;
+  padding-right: 22em;
+  padding-top: 5px;
+  margin: 0px;
+}
+
+.card {
+  border: 1px solid black !important;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+  background-color: white;
+  width: 20rem !important;
+  height: 22rem !important;
+  margin-top: 8em;
+  align-items: center;
+  text-align: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.card img {
+  margin-top: 2rem;
+  height: 35px;
+  width: auto;
+}
+
+.card-title {
+  color: grey;
+  font-size: 16px;
+  margin: 90px 0 15px;
+}
+
+.card-text {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.18;
+  color: #152d45;
+}
+
+.hero-title h1 {
+  font-size: 55px;
+  font-weight: bolder;
+  color: #152d45;
+  line-height: 58px;
+}
+.section-1 h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #152d45;
+}
+.section-1 .subtitle {
+  font-size: 20px;
+  font-weight: 700;
+  padding-top: 1em;
+}
+.section-1 hr {
+  border: 3px solid #ed7a23;
+  width: 67px;
+  position: absolute;
+}
+
+/* section 1 css end */
+
+/* section 2 css start */
+.column2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 22em;
+  padding-right: 22em;
+  padding-top: 5em;
+  padding-bottom: 16em;
+  margin: 0px;
+}
+
+.hero-1 {
+  width: 300px;
+}
+
+.hero-1 h1 {
+  font-size: 51px;
+  font-weight: 700;
+  color: #152d45;
+}
+.hero-1 h2 {
+  font-size: 3.2em;
+  font-weight: 700;
+  color: #152d45;
+}
+.hero-1 .subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  padding-top: 1em;
+}
+.hero-1 hr {
+  border: 3px solid #ed7a23;
+  width: 67px;
+  position: absolute;
+}
+/* section 2 css end */
+
+/* section 3 css start */
+.section-3 {
+  background-color: #f7f8fa;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-left: 22em;
+  padding-right: 22em;
+  margin: 0px;
+}
+.section-3 img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+.team {
+  float: top;
+  margin-top: -10rem;
+}
+.row h5 {
+  font-size: 27px;
+  font-weight: 300;
+  text-align: center;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin: 1em;
+}
+
+.section-3 hr {
+  border: 3px solid #ed7a23;
+  width: 5%;
+}
+
+.btn-team {
+  padding: 15px 30px !important;
+  border-radius: 35px !important;
+  border: 0px solid white;
+  background-color: #152d45;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2em;
+}
+.btn-team:hover {
+  text-decoration: none;
+}
+
+.subs {
+  align-self: center;
+}
+/* section 3 css end */
+
+/* section 4 css start */
+.section-4 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 22em;
+  padding-right: 22em;
+  margin: 0px;
+}
+.blockquote {
+  padding-top: -em;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.blockquote:before {
+  content: open-quote;
+}
+
+.blockquote:after {
+  content: close-quote;
+}
+
+.blockquote:before,
+.blockquote:after {
+  font-size: 3em;
+  color: #ed7a23;
+  padding: 0;
+  position: relative;
+  top: 0.4em;
+}
+
+.hero-3 h2 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #152d45;
+  line-height: 45px;
+}
+
+.hero-3 hr {
+  border: 3px solid #ed7a23;
+  width: 67px;
+  position: absolute;
+}
+/* section 4 css end */
+
+/* section 5 css start */
+.section-5 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 22em;
+  padding-right: 22em;
+  margin: 0px;
+}
+.blog {
+  padding-top: 2em;
+  text-align: justify;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.blog h3 {
+  font-size: 2.5em;
+  font-weight: 800;
+  color: #226fba;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.blog h4 {
+  font-size: 1.4em;
+  font-weight: 800;
+  color: #152d45;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+/* section 5 css end */
+
+/* section 6 css start */
+.section-6 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-left: 16em;
+  padding-right: 22em;
+  padding-top: 5em;
+  padding-bottom: 16em;
+  margin: 0px;
+}
+
+.title-row h3 {
+  font-size: 1.8em;
+  font-weight: 800;
+  color: #152d45;
+  margin-top: 0px;
+}
+
+.title-row hr {
+  border: 3px solid #ed7a23;
+  width: 67px;
+  position: absolute;
+}
+
+.table-row-1 {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid lightgrey;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table-row-2 {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table-row-1 h4 {
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 46px;
+  color: #226fba;
+  text-align: center;
+  margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table-row-1 h3 {
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 44px;
+  color: #152d45;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table-row-2 h4 {
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 46px;
+  color: #226fba;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table-row-2 h3 {
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 44px;
+  color: #152d45;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.table-block {
+  padding-left: 1em;
+  padding-right: 2em;
+  width: 250px;
+  height: 250px;
+}
+.border-left {
+  border-left: 1px solid lightgrey;
+}
+/* section 6 css end */
+
+/* section 7 css start */
+.section-7{
+    background-color: lightgrey;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+.row-numbers{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 22em;
+    padding-right: 22em;
+}
+.posts{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20em;
+    padding-right: 20em;
+    padding-top: 4em;
+    padding-bottom: 4em;
+}
+
+.posted-1{
+    border: 2px black solid;
+    border-left: 10px navy solid;
+    background-color: white;
+    margin-bottom: 5em;
+    width: 600px;
+}
+.posted-2{
+    border: 2px black solid;
+    border-left: 10px navy solid;
+    background-color: white;
+    margin-bottom: 5em;
+    width: 580px;
+    
+}
+.date{
+    color: lightgrey;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 0px;
+    padding-left: 1em;
+}
+
+.main-text{
+    font-size:1.5em;
+    padding-left: 1em;
+}
+
+.read-more a{
+    color: orange;
+    text-decoration: none;
+    padding-left: 1.5em;
+}
+
+/* section 8 css start */
+.gallery-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 23em;
+    padding-right: 10em;
+    padding-top: 6em;
+    margin: 0px;
+}
+
+.gallery-title h3 {
+    font-size: 1.8em;
+    font-weight: 800;
+    color: #152d45;
+    margin-top: 0px;
+  }
+
+.gallery-title hr{
+    border: 3px solid #ed7a23;
+    width: 67px;
+    position: absolute;
+}
+
+.gallery{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-left: 20em;
+    padding-right: 22em;
+    padding-top: 4em;
+    padding-bottom: 4em;
+    margin: 0px;
+}
+.logo-gallery{
+    width: 145px;
+    height: 145px;
+}
+/* section 8 css end */
+
+/* footer css start */
+.footer{
+    background-color: #152d45;
+}
+.footer-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-left: 20em;
+    padding-right: 22em;
+    padding-top: 4em;
+    padding-bottom: 4em;
+    margin: 0px;
+    border-width: 80% !important;
+}
+.footer hr{
+width:66%;
+}
+.footer-col li {
+    color: white;
+    text-decoration: none;
+    list-style: none;
+    line-height: 1.85rem;
+    font-size: 14px;
+    font-weight: 300;
+}
+.footer-title{
+    font-weight: 500 !important;
+    font-size: 18px !important;
+    line-height: 3rem !important;
+}
+.footer-col a{
+    text-decoration: none;
+    color: white;
+}
+.footer-col a:hover{
+    text-decoration: none;
+    color: white;
+}
+.credits{
+    color:white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 20em;
+    padding-right: 22em;
+    margin: 0px;
+}
+
+/* footer css end */
