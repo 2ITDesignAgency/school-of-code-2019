@@ -29,13 +29,13 @@
 
 ### **Exercise 6:** [Array Exercise js](https://github.com/2ITDesignAgency/school-of-code-2019/tree/master/Excersize/Array)
 #### **Status:** Complete
-#### [**DEMO 1**](https://2itdesignagency.github.io/school-of-code-2019/Excersize/Array/30-10-2019--Arrays-003.html) [**DEMO2](https://2itdesignagency.github.io/school-of-code-2019/Excersize/Array/30-10-2019--Arrays-002.html)
+#### [**DEMO 1**](https://2itdesignagency.github.io/school-of-code-2019/Excersize/Array/30-10-2019--Arrays-003.html) [**DEMO2**](https://2itdesignagency.github.io/school-of-code-2019/Excersize/Array/30-10-2019--Arrays-002.html)
 **Status comments:** completed all 3 Exercises and have connected both js files to html for the result to work.  
 **Extra:** added an extra css file just for styling
 
 ### **Exercise 7:** [JSON Fetch Exercise js](https://github.com/2ITDesignAgency/school-of-code-2019/tree/master/Excersize/Fetch)
 #### **Status:** Complete
-#### [**DEMO Nations**](https://2itdesignagency.github.io/school-of-code-2019/Excersize/Fetch/fetch_nations.html) [**DEMO Joke](https://2itdesignagency.github.io/school-of-code-2019/Excersize/Fetch/fetch_jokes.html)
+#### [**DEMO Nations**](https://2itdesignagency.github.io/school-of-code-2019/Excersize/Fetch/fetch_nations.html) [**DEMO Joke**](https://2itdesignagency.github.io/school-of-code-2019/Excersize/Fetch/fetch_jokes.html)
 **Extra:** made the code to get ip and find location on load then used the country api to find country info and integrated unsplush api to use the country keyword to show images finally used country variable at the end of wikipedia link to link the button to read more so it goes to country page in wikipedia.
 
 ### **Exercise 8:** [Mobile-contacts-assignment](https://github.com/2ITDesignAgency/school-of-code-2019/tree/master/Excersize/mobile-contacts-assignment)
