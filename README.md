@@ -33,3 +33,6 @@
 
 ### **Exercise 8:** mobile-contacts-assignment
 #### **Status:** Complete
+
+### **Exercise 9:** shop with js
+#### **Status:** Complete
