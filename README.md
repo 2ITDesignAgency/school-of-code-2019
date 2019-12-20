@@ -8,7 +8,7 @@
 
 ### **Exercise 2:** [Epignosis Web Page Bootstrap & Flexbox](https://github.com/2ITDesignAgency/school-of-code-2019/tree/master/Excersize/Epignosis-Web-Page-bootstrap-flexbox)
 #### **Status:** Complete
-#### [**DEMO Flexbox**](https://2itdesignagency.github.io/school-of-code-2019/Excersize/Epignosis-Web-Page-bootstrap-flexbox/epignosisNoBootsrap.html) [**DEMO Bootsrap](https://2itdesignagency.github.io/school-of-code-2019/Excersize/Epignosis-Web-Page-bootstrap-flexbox/Home.html)
+#### [**DEMO Flexbox**](https://2itdesignagency.github.io/school-of-code-2019/Excersize/Epignosis-Web-Page-bootstrap-flexbox/epignosisNoBootsrap.html) [**DEMO Bootsrap**](https://2itdesignagency.github.io/school-of-code-2019/Excersize/Epignosis-Web-Page-bootstrap-flexbox/Home.html)
 **Status comments:** Replicated Epignosis Web Page with bootsrap & flexbox method
 
 ### **Exercise 3:** [Scrimba js](https://github.com/2ITDesignAgency/school-of-code-2019/tree/master/Excersize/scrimba-js)
